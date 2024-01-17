@@ -1,10 +1,10 @@
 import Joi from 'joi';
 import { EventEmitter } from 'events';
-import { IUserRepository } from '../../domain/repositories';
-import { ERR_USER_NOT_FOUND, EVENT_ERROR } from '../../constants';
+import { IUserRepository } from '../../../domain/repositories';
+import { ERR_USER_NOT_FOUND, EVENT_ERROR } from '../../../constants';
 import { inject, injectable } from 'tsyringe';
-import { IUserModel } from '../../domain/entities';
-import { IUseCase, UseCaseResult } from '../../types';
+import { IUserModel } from '../../../domain/entities';
+import { IUseCase, UseCaseResult } from '../../../types';
 
 const schema = Joi.object({
   id: Joi.string().required(),

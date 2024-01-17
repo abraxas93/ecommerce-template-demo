@@ -1,5 +1,5 @@
 import { injectable, inject } from 'tsyringe';
-import { ICreateUser, IGetUser, IUserSignIn } from '../use-cases';
+import { ICreateUser, IGetUser, IUserSignIn } from '../use-cases/users';
 import { UseCaseResult } from '../../types';
 import { IUserModel } from '../../domain/entities';
 

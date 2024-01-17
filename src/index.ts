@@ -2,6 +2,9 @@
 import 'reflect-metadata';
 import { initLogger } from '@/utils/logger';
 import { bootstrapDependencies } from './di-container';
+import { bootstrapRoutes } from './infrastructure/http/routes';
+import { container } from 'tsyringe';
+import { bootstrapServer } from './infrastructure/http';
 
 const logger = initLogger(__filename);
 
@@ -24,9 +27,13 @@ function bootstrapProcessEvents() {
 }
 
 async function main() {
-  logger.info('bootstrap app dependencies');
+  // entry point
   bootstrapProcessEvents();
   await bootstrapDependencies();
+  const apiV1 = bootstrapRoutes({
+    orderCtrl: container.resolve('OrderController'),
+  });
+  bootstrapServer(apiV1);
 }
 
-main().catch((err) => console.log(err));
+main().catch((err) => console.error(err));

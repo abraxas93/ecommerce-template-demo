@@ -1,14 +1,14 @@
 import { EventEmitter } from 'events';
-import { IUserModel } from '../../domain/entities';
-import { IUserRepository } from '../../domain/repositories';
+import { IUserModel } from '../../../domain/entities';
+import { IUserRepository } from '../../../domain/repositories';
 import Joi from 'joi';
 import {
   ERR_INVALID_PASSWORD,
   ERR_USER_NOT_FOUND,
   EVENT_ERROR,
-} from '../../constants';
+} from '../../../constants';
 import { inject, injectable } from 'tsyringe';
-import { IUseCase, UseCaseResult } from '../../types';
+import { IUseCase, UseCaseResult } from '../../../types';
 
 const schema = Joi.object({
   email: Joi.string().email().required(),

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import express, { Response, Request, NextFunction } from 'express';
+import express, { Response, Request, NextFunction, Router } from 'express';
 import http from 'http';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
@@ -8,11 +8,9 @@ import { initLogger } from '../../utils';
 import path from 'path';
 import cors from 'cors';
 
-import { bootstrapRoutes } from './routes';
-
 const logger = initLogger(__filename);
 
-export function bootstrapServer() {
+export function bootstrapServer(apiV1: Router) {
   const app = express();
 
   app.set('trust proxy', 1);
@@ -38,8 +36,7 @@ export function bootstrapServer() {
     logger.info(`${req.method} ${req.url} ${JSON.stringify(req.body)}`);
     next();
   });
-  // rest api
-  const apiV1 = bootstrapRoutes();
+
   app.use('/api/v1', apiV1);
 
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

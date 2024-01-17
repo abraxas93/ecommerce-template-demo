@@ -1,2 +1,2 @@
-export * from './use-cases';
+export * from './use-cases/users';
 export * from './services';

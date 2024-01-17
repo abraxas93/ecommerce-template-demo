@@ -1,11 +1,11 @@
 import { ObjectId } from 'mongodb';
 import { EventEmitter } from 'events';
-import { User } from '../../domain/entities';
-import { IUserRepository } from '../../domain/repositories';
+import { User } from '../../../domain/entities';
+import { IUserRepository } from '../../../domain/repositories';
 import Joi from 'joi';
-import { EVENT_ERROR } from '../../constants';
+import { EVENT_ERROR } from '../../../constants';
 import { inject, injectable } from 'tsyringe';
-import { IUseCase, UseCaseResult } from '../../types';
+import { IUseCase, UseCaseResult } from '../../../types';
 
 const schema = Joi.object({
   email: Joi.string().email().required(),
