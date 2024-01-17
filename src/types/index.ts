@@ -13,3 +13,5 @@ export type UseCaseResult<T> = Success<T> | Failure;
 export interface IUseCase<I, O> {
   execute(data: I): O;
 }
+
+export type Processor = 'stripe' | 'paypal' | 'braintree';
