@@ -1,6 +1,6 @@
 # ecommerce-template-demo
 
-This code template utilizes my `ts-node-boilerplate` as the initial template for coding. Therefore, there are some pieces of code that are not related to the current task. However, I hope these pieces from my original template will provide valuable insights into my coding style."
+This code template utilizes my `ts-node-boilerplate` as the initial template for coding. Therefore, there are some pieces of code that are not related to the current task. However, I hope these pieces from my original template will provide valuable insights into my coding style.
 
 1. Architecture style
 Its a hexagonal architecture based on Uncle Bob Clean Architecture and with some elements of DDD
