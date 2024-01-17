@@ -12,5 +12,9 @@ Its a hexagonal architecture based on Uncle Bob Clean Architecture and with some
   - domain layer (entities) responsible for business logic only
   - services responsible for managing specific business rules and integration with 3d party services
   - repositories (responsible for data access and storing)
-4. Using `tsyringe` as DI-container for managing dependencies
+4. Using `tsyringe` as DI-container for managing dependencies, this allow us to have low coupling
 5. Every piece of app can be called in separate isolated enviroment, this allow easy testing
+
+
+2. Implementation of PaymentService
+  - all necessary comments located in `src/application/services/PaymentService`
