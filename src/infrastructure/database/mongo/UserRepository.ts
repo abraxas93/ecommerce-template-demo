@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { IUserModel, User } from '../../../domain/entities';
 import { Collection, MongoClient, ObjectId } from 'mongodb';
 import { UserMapper } from '../../mappers';
