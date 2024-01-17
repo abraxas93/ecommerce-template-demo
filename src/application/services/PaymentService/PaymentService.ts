@@ -29,6 +29,10 @@ export class PaymentService implements IPaymentService {
     return !!this.processors[processor];
   }
 
+  private cacheProcessor(name: Processor, paymentProcessor: IPaymentProcessor) {
+    this.processors[name] = paymentProcessor;
+  }
+
   handlePayment = async (payment: Payment) => {
     let paymentProcessor: IPaymentProcessor;
     if (this.isProcessorExist(payment.processor)) {
@@ -37,6 +41,7 @@ export class PaymentService implements IPaymentService {
       paymentProcessor = this.processorCreator.createPaymentProcessor(
         payment.processor
       );
+      this.cacheProcessor(payment.processor, paymentProcessor);
     }
     // INFO: here shpuld be additional logic, like logging, emiting events, etc...
     return paymentProcessor.processPayment(payment.amount);
